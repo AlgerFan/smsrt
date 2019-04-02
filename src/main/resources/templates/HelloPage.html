@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台欢迎界面</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/Hello.css}">
+</head>
+<body>
+    <div class="box">
+        <div class="in_box top">
+            <ul>
+                <li class="one" style="background: linear-gradient(#f6ba8f,#e7711d)">
+                    <img th:src="@{/images/add.png}" alt="">
+                    <a th:href="@{/admin/toInsertUser}" target="myframe" class="a_font">添加用户</a>
+                </li>
+                <li class="two" style="background: linear-gradient(#c4bfe7,#6054bc)">
+                    <img th:src="@{/images/look.png}" alt="">
+                    <a th:href="@{/admin/selectUser}" target="myframe" class="a_font">查找用户</a>
+                </li>
+            </ul>
+        </div>
+        <div class="in_box bottom">
+            <ul>
+                <li class="three" style="margin:0;background: linear-gradient(#75e380,#167c4f)">
+                    <img th:src="@{/images/product.png}">
+                    <!--<a th:href="@{/admin/selectUser}" target="myframe" class="a_font">查找用户</a>-->
+                </li>
+                <li class="three" style="background: linear-gradient(#fed88a,#d59517)">
+                    <img th:src="@{/images/40.png}" alt="">
+                </li>
+                <li class="three" style="background: linear-gradient(#61d6f7,#1a418b)">
+                    <img th:src="@{/images/edit.png}" alt="">
+                    <!--<a th:href="@{/admin/selectUser}" target="myframe" class="a_font">查找用户</a>-->
+                </li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

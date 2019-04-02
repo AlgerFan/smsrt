@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加商品</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/release/wangEditor-fullscreen-plugin.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/addgoods.css}">
+</head>
+<body>
+<<<<<<< HEAD
+    <p class="font">增加商品</p>
+    <form class="wrap_form" th:action="@{/admin/insertGood}" method="post"  enctype="multipart/form-data" onsubmit="modifyContent()">
+       <div class="group">
+           <label for="">库存:</label>
+           <input type="text" name="inventory" required/>
+           <span style="color: #f00">*</span>
+       </div>
+        <div class="group">
+            <label for="">商品名称:</label>
+            <input type="text" name="name" required/>
+            <span style="color: #f00">*</span>
+        </div>
+        <div class="group">
+            <label for="">商城价格:</label>
+            <input type="text" name="money" required>
+            <span style="color: #f00">*</span>
+        </div>
+        <div class="group">
+            <label for="">类型:</label>
+            <input type="text" name="type" required>
+            <span style="color: #f00">*</span>
+        </div>
+        <div class="group">
+            <label for="">商品规格:</label>
+            <input type="text" name="specification" required>
+            <span style="color: #f00">*</span>
+        </div>
+        <div class="box">
+            <input onchange="getfilename()" class="inp" type="file" name="file" id="file" accept="image/*" required/>
+            <button class="init_file" type="button">+</button>
+            <span id="file_name"></span>
+        </div>
+        <br>
+        <!--富文本-->
+        <div class="form-group">
+            <!-- 编辑器编辑，提交时执行js，获得编辑器的内容，赋值给textarea，用于向后台提交存入数据库 -->
+            <textarea rows="5" cols="30" name="details" style="display:none;" id="introduce"></textarea>
+            <div id="editor">
+                <p>请编写该商品的<b>商品详情</b>，包括图片文字</p>
+=======
+<div class="windoww">
+    <div class="popup-windows">
+        <h2 style="text-align: center">添加商品</h2>
+        <form th:action="@{/admin/insertGood}" method="post"  enctype="multipart/form-data" onsubmit="modifyContent()">
+            <table class="table table-hover table-bordered">
+                <tr>
+                    <th>库存</th>
+                    <td><input type="text" name="inventory" class="form-control" required/></td>
+                </tr>
+                <tr>
+                    <th>商品名称</th>
+                    <td>
+                        <input type="text" name="name" class="form-control" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>商城价</th>
+                    <td><input type="text" name="money"  class="form-control" required></td>
+                </tr>
+                <tr>
+                    <th>类型</th>
+                    <td><input type="text" name="type"  class="form-control" required></td>
+                </tr>
+                <tr>
+                    <th>商品规格</th>
+                    <td><input type="text" name="specification"  class="form-control" required></td>
+                </tr>
+                <tr>
+                    <th style="padding-top: 64px;">上传图片</th>
+                    <td>
+                        <input type="file" name="file" id="file" accept="image/*" required/>
+                    </td>
+                </tr>
+            </table>
+
+            <div class="form-group">
+                <!-- 编辑器编辑，提交时执行js，获得编辑器的内容，赋值给textarea，用于向后台提交存入数据库 -->
+                <textarea rows="5" cols="35" name="details" style="display:none;" id="introduce"></textarea>
+                <div id="editor">
+                    <p>请编写该商品的<b>商品详情</b>，包括图片文字</p>
+                </div>
+                <!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+                <script type="text/javascript" th:src="@{/release/wangEditor.min.js}"></script>
+                <!-- 设置全屏功能的两个js文件，先引入jquery-3.2.1.min.js，在引入wangEditor-fullscreen-plugin.js -->
+                <script type="text/javascript" th:src="@{/release/jquery-3.2.1.min.js}"></script>
+                <script type="text/javascript" th:src="@{/release/wangEditor-fullscreen-plugin.js}"></script>
+                <script type="text/javascript">
+                    var E = window.wangEditor
+                    var editor = new E('#editor')
+                    /* 处理上传图片的请求URL */
+                    editor.customConfig.uploadImgServer = '/admin/upload'
+                    /* 定义上传图片的默认名字 */
+                    editor.customConfig.uploadFileName = 'file'
+                    // 或者 var editor = new E( document.getElementById('editor') )
+                    editor.create()
+                    //初始化全屏插件
+                    E.fullscreen.init('#editor');
+                </script>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <input type="submit" value="提交" class="btn btn-info" id="sub"/>
+                </div>
+>>>>>>> 1b33cf62227073c20b0ec4c50089172616f64e78
+            </div>
+        </div>
+        <input class="sub_btn" type="submit" value="增加"/>
+    </form>
+</body>
+<!-- 注意， 只需要引用 JS，无需引用任何 CSS ！！！-->
+<script type="text/javascript" th:src="@{/release/wangEditor.min.js}"></script>
+<!-- 设置全屏功能的两个js文件，先引入jquery-3.2.1.min.js，在引入wangEditor-fullscreen-plugin.js -->
+<script type="text/javascript" th:src="@{/release/jquery-3.2.1.min.js}"></script>
+<script type="text/javascript" th:src="@{/release/wangEditor-fullscreen-plugin.js}"></script>
+<script type="text/javascript" th:src="@{/js/addgoods.js}"></script>
+<script type="text/javascript">
+    var E = window.wangEditor;
+    var editor = new E('#editor');
+    /* 处理上传图片的请求URL */
+    editor.customConfig.uploadImgServer = '/admin/upload';
+    /* 定义上传图片的默认名字 */
+    editor.customConfig.uploadFileName = 'myFileName';
+    // 或者 var editor = new E( document.getElementById('editor') )
+    editor.create();
+    //初始化全屏插件
+    E.fullscreen.init('#editor');
+</script>
+
+</html>

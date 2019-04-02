@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>后台首页</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}"/>
+</head>
+<body>
+<!-- 顶部 -->
+<div class="header">
+    <img th:src="@{/images/bg-2.png}">
+    <p class="h_title">惠农商城管理系统</p>
+</div>
+<!--中间-->
+<div class="contain">
+    <div class="c_left">
+        <!--左侧列表-->
+        <ul class="c_list" id="ul">
+            <li>
+                <img class="icons" th:src="@{/images/yonghu.png}" />
+                <span class="user">用户管理</span>
+                <div class="box">
+                    <p>
+                        <img class="icons" th:src="@{/images/add1.png}" />
+                        <a th:href="@{/admin/toInsertUser}" target="myframe">增加用户</a>
+                        <!--三角图标-->
+                        <i class="ics"></i>
+                    </p>
+                    <p>
+                        <img class="icons" th:src="@{/images/search1.png}" />
+                        <a th:href="@{/admin/selectUser}" target="myframe">查看用户</a>
+                        <!--三角图标-->
+                        <i class="ics"></i>
+                    </p>
+                </div>
+            </li>
+            <li>
+                <img class="icons" th:src="@{/images/shangpinguanli.png}" />
+                <span class="user">商品管理</span>
+                <div class="box">
+                    <p>
+                        <img class="icons" th:src="@{/images/add2.png}" />
+                        <a th:href="@{/admin/toAddGoods}" target="myframe">增加商品</a>
+                        <i class="ics"></i>
+                    </p>
+                    <p>
+                        <img class="icons" th:src="@{/images/search2.png}" />
+                        <a th:href="@{/admin/selectGoods}" target="myframe">查看商品</a>
+                        <i class="ics"></i>
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--右边显示内容区域-->
+    <div class="c_right">
+        <iframe th:src="@{/admin/HelloPage}" name="myframe" frameborder="0" style="width:100%;height:100%;"></iframe>
+    </div>
+</div>
+</body>
+<script th:src="@{/js/jquery-2.1.0.js}"></script>
+<script>
+    $(function () {
+        var len = $('#ul').find('a').length;
+        $('#ul').find('a').click(function () {
+            $('#ul').find('a').each(function () {
+                $('a').css({"color":"#000"});
+                $('a').siblings('.ics').css({"display":'none'})
+            });
+            $(this).css({"color":"#02795b"});
+            $(this).siblings('.ics').css({"display":'inline-block'})
+        });
+
+
+    })
+</script>
+</html>

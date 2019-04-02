@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f3f3f3;
+}
+.form{
+    width: 40%;
+    height: auto;
+    margin: 0 auto;
+    margin-top: 2%;
+}
+.inp_goup{
+    height: 55px;
+    line-height: 55px;
+}
+label{
+    width: 110px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+}
+.inp_goup input,.inp_goup select{
+    width: 215px;
+    height: 30px;
+    padding-left: 5px;
+    outline: none;
+}
+.inp_goup input:focus{
+    border: 1px solid rgb(236, 148, 15);
+}
+/* 提示信息 */
+.must{
+    color: #f00;
+    font-size: 10px;
+}
+.pass{
+    font-size: 12px;
+    color: rgb(10, 190, 10);
+}
+.s_btn{
+    padding: 9px 30px;
+    margin-left: 110px;
+    margin-top: 40px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    background-color: rgb(88, 146, 206);
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+}
+.ripple:hover{
+    background-color: #3b66df;
+}
+/* 提交 */
+.ripple{
+    position: relative;
+    overflow: hidden;
+    outline: none;
+}
+/*.ripple::after{*/
+    /*content: "";*/
+    /*display: block;*/
+    /*position: absolute;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*pointer-events: none;*/
+    /*background-image: radial-gradient(circle, rgb(20, 117, 41) 10%, transparent 10.01%);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: 50%;*/
+    /*transform: scale(10, 10);*/
+    /*opacity: 0;*/
+    /*transition: transform .3s, opacity .5s;*/
+/*}*/
+/*.ripple:active:after {*/
+    /*transform: scale(0, 0);*/
+    /*opacity: .3;*/
+    /*transition: 0s;*/
+/*}*/
+/*提示信息*/
+.tipinfo{
+    margin-left: 31%;
+    font-size: 18px;
+    color: #f00;
+}

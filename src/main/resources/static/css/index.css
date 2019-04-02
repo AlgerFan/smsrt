@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+i{
+    font-style: normal
+}
+body{
+    background: #dbdbdb;
+    min-width: 1200px;
+}
+.header{
+    width: 100%;
+    height: 80px;
+    background: #00694f url(.././images/bg.png) repeat-x;
+    line-height: 80px;
+}
+.h_title{
+    float: left;
+    color: #fff;
+    font-size: 35px;
+    margin-left: 50px;
+}
+.header img{
+    width: 485px;
+    height: 100%;
+    float: right;
+    margin-right: 150px;
+}
+/*中间*/
+.contain{
+    width: 100%;
+    height: auto;
+    /*min-height: 660px;*/
+    margin-top: 15px;
+    padding: 0 15px;
+}
+/* 左边 */
+.c_left{
+    float: left;
+    width: 16%;
+    height: 620px;
+    background-color: #008160;
+}
+/* 列表 */
+.c_list{
+    width: 100%;
+    height: 100%;
+}
+.c_list>li{
+    width: 100%;
+    vertical-align: middle;
+    list-style: none;
+    cursor: pointer;
+    border-left: 3px solid #008160;
+}
+.c_list span{
+    display: inline;
+    padding: 15px 0;
+    line-height: 50px;
+    color: #fff;
+}
+/*图标*/
+.icons{
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 5px;
+}
+/* 下拉列表 */
+.box{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    background-color: #fff;
+}
+.box a{
+    color: #000;
+}
+.box p{
+    padding: 18px 20px;
+    width: 100%;
+    position: relative;
+}
+.box p:hover a{
+    color: #02795b!important;
+}
+/* 三角符号 */
+.ics {
+    width: 0;
+    height: 0;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    border-right: 13px solid #f3f3f3;
+    border-top: 13px solid transparent;
+    border-bottom: 13px solid transparent;
+    border-left: 13px solid transparent;
+    display: none;
+}
+/* 右边 */
+.c_right{
+    float: left;
+    width: 80%;
+    height: 620px;
+    background-color: #fff;
+}

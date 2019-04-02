@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>添加用户</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/adduser.css}">
+</head>
+<body style="padding-top: 20px">
+<a th:if="${msg!=null}" th:text="${msg}" class="tipinfo"></a>
+<form th:action="@{/admin/insertUser}" method="post" class="form">
+    <div class="inp_goup">
+        <label for="">用户角色:</label>
+        <select>
+            <option>请选择角色</option>
+            <!--默认选中为用户，预防不选择-->
+            <option value="0" selected> 用户 </option>
+            <option value="1"> 管理员 </option>
+        </select>
+    </div>
+    <div class="inp_goup">
+        <label for="">用户名：</label>
+        <input type="text" name="userName" id="user">
+        <span class="must" id="usertip">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">密 码：</label>
+        <input type="password" name="password" id="password">
+        <span class="must" id="pwd">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">手机号：</label>
+        <input type="text" name="phone" id="phone">
+        <span class="must" id="ph_info">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">电子邮箱:</label>
+        <input type="text" name="email" id="email">
+    </div>
+    <div class="inp_goup">
+        <label for="">用户地址:</label>
+        <input type="text" name="city" id="city">
+    </div>
+    <input type="submit" value="提交" class="s_btn ripple"/>
+</form>
+<script type="text/javascript" th:src="@{/js/Adduser.js}"></script>
+</body>
+
+</html>

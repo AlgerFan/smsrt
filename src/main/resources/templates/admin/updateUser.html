@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>修改用户信息</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/adduser.css}">
+</head>
+<body>
+<form th:action="@{/admin/updateUser(userId=${user.userId})}" method="post" class="form">
+    <div class="inp_goup">
+        <label for="">用户角色:</label>
+        <select>
+            <option>请选择角色</option>
+            <option value="0" th:selected="${user.getRoleId()==0}">用户</option>
+            <option value="1" th:selected="${user.getRoleId()==1}">管理员</option>
+        </select>
+    </div>
+    <div class="inp_goup">
+        <label for="">用户名&nbsp;：</label>
+        <input type="text" name="userName" id="user" th:value="${user.getUserName()}">
+        <span class="must" id="usertip">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">密&nbsp;&nbsp;码：</label>
+        <input type="password" name="password" id="password" th:value="${user.getPassword()}">
+        <span class="must" id="pwd">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">手机号&nbsp;：</label>
+        <input type="text" name="phone" id="phone" th:value="${user.getPhone()}">
+        <span class="must" id="ph_info">*</span>
+    </div>
+    <div class="inp_goup">
+        <label for="">电子邮箱:</label>
+        <input type="text" name="email" id="email" th:value="${user.getEmail()}">
+    </div>
+    <div class="inp_goup">
+        <label for="">地&nbsp;&nbsp;址:</label>
+        <input type="text" name="city" id="city" th:value="${user.getCity()}">
+    </div>
+    <input type="submit" value="确认修改" class="s_btn ripple"/>
+</form>
+</body>
+<script type="text/javascript" th:src="@{/js/Adduser.js}"></script>
+</html>

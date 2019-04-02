@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/userlist.css}"/>
+</head>
+<body>
+    <div class="abtn">
+        <a class="add" th:href="@{/admin/toInsertUser}">
+            <!--hover时边框-->
+            <span class="line line-top"></span>
+            <span class="line line-right"></span>
+            <span class="line line-bottom"></span>
+            <span class="line line-left"></span>
+            添加
+        </a>
+    </div>
+<!--用户列表-->
+    <table id="tab">
+        <thead>
+            <tr>
+                <th>用户名</th>
+                <th>角色</th>
+                <th>电话</th>
+                <th>密码</th>
+                <th>邮箱</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="hcover" th:each="user : ${users}">
+                <td th:text="${user.userName}"></td>
+                <td th:if="${user.roleId == 0}">普通用户</td>
+                <td th:if="${user.roleId == 1}">管理员用户</td>
+                <td th:text="${user.phone}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.email}"></td>
+                <td>
+                    <input id="hidden" type="hidden" th:value="${user.userId}">
+                    <a th:href="@{/admin/deleteById}" class="btn delete userdel">删除</a>
+                    <a th:href="@{/admin/toUpdateUser(userId=${user.userId})}" class="btn update" target="myframe">修改</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+<!--分页-->
+<div class="SplitPage" th:if="${TotalPages > 0}">
+    <ul class="SplitUl" th:if="${TotalPages > 1}">
+        <li th:if="${Number == 1}">
+            <a href="javascript:;">首页</a>
+        </li>
+        <!--//跳转至第一页-->
+        <li th:if="${Number > 1}">
+            <a th:href="@{/admin/selectUser(pageNum=1)}">首页</a>
+        </li>
+        <li th:if="${Number > 1}">
+            <a th:href="@{/admin/selectUser(pageNum=${Number-1})}">Prev</a>
+        </li>
+        <!--//请求页数-1-->
+        <li th:each="i:${#numbers.sequence(1,TotalPages)}">
+            <!--//从1到总页数遍历，并赋值给i    TotalPages&ndash;&gt;总页数-->
+            <a th:if="${i > Number-3} and ${i < Number+3} and ${i == Number}" class="active" href="javascript:;"
+               th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数   而且等于当前页，不能点击-->
+            <a th:if="${i > Number-3} and ${i < Number+3} and ${i != Number}"
+               th:href="@{/admin/selectUser(pageNum=${i})}" th:text="${i}">#</a>
+            <!--//限制显示页数的条数  4到6个页数-->
+        </li>
+        <li th:if="${Number != TotalPages}">
+            <a th:href="@{/admin/selectUser(pageNum=${Number+1})}">Next</a>
+        </li><!--//请求页数+1-->
+        <li th:if="${Number == TotalPages}">
+            <a class="noclick" href="javascript:;">尾页</a>
+        </li>
+        <li th:if="${Number != TotalPages}">
+            <a th:href="@{/admin/selectUser(pageNum=${TotalPages})}">尾页</a>
+        </li><!--//跳转至第Number页-->
+    </ul>
+</div>
+</body>
+<script th:src="@{/js/jquery-2.1.0.js}"></script>
+<script type="text/javascript" th:src="@{/js/user.js}"></script>
+</html>
